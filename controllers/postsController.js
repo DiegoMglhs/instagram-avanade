@@ -38,6 +38,15 @@ const potsController = {
             }
         })
         return res.json(deletar);
+    },
+    show: async(req,res) =>{
+        const {id} = req.params;
+        let mostrartudo = await Post.findAll({
+            where: {
+                usuarios_id: id
+            }
+        })
+        return res.json(mostrartudo)
     }
 }
 module.exports = potsController;

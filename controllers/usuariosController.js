@@ -6,22 +6,23 @@ const usuariosController = {
         return res.json(usuarios);
     },
     create: async (req,res) => {
-        let dadoUsuario = req.body;
+        let{nome, email, senha} = req.body;
         let novoUsuario = await Usuario.create({
-            nome: dadoUsuario.nome,
-            email: dadoUsuario.email,
-            senha: dadoUsuario.senha
+            nome,
+            email,
+            senha
         })
         return res.json(novoUsuario);
 
     },
     update: async (req, res) => {
         const{upid} = req.params;
+        let {nome, email, senha} = req.body
         let dadosAtualiza = req.body;
         let atualiza = await Usuario.update({
-            nome: dadosAtualiza.nome,
-            email: dadosAtualiza.email,
-            senha: dadosAtualiza.senha
+            nome,
+            email,
+            senha
         }, {
             where: {
                 id: upid

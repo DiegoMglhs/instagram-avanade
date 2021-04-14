@@ -10,4 +10,6 @@ router.put('/:upid', potsController.update);
 
 router.delete('/:delId', potsController.delete);
 
+router.get('/:id', potsController.show);
+
 module.exports = router;
