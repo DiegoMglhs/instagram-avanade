@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const usuariosController = require('../controllers/usuariosController');
+const validarcadastro = require('../middlewares/validarcadastro');
 
 router.get('/', usuariosController.index);
 
-router.post('/', usuariosController.create);
+router.post('/',validarcadastro, usuariosController.create);
 
 router.put('/:upid', usuariosController.update);
 
