@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
         "Post", {
             texto: DataTypes.STRING,
             img: DataTypes.STRING,
+            usuarios_id: DataTypes.INTEGER,
             n_likes: DataTypes.INTEGER
         }, {
             tableName: "posts",

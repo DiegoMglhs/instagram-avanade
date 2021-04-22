@@ -1,15 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const potsController = require('../controllers/postsController');
+const postsController = require('../controllers/postsController');
 
-router.get('/', potsController.index);
+router.get('/', postsController.index);
+// http://localhost:3000/posts/
 
-router.post('/', potsController.create);
-
-router.put('/:upid', potsController.update);
-
-router.delete('/:delId', potsController.delete);
-
-router.get('/:id', potsController.show);
+router.get('/:usuarios_id', postsController.show);
+router.post('/', postsController.create);
+router.put('/:id', postsController.update);
+router.delete('/:id', postsController.delete);
 
 module.exports = router;

@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box; /*diz que todas as informações do elemento não aleram no outro, respeitam a sua propria box*/
+    text-decoration: none;
+    color: black;
+
+}
+body{
+    font-family: Arial, sans-serif;
+    /* background-color: red; */
+}
+main{
+    display: flex;
+    justify-content: center; 
+    /*alinhamento na horizontal*/
+    align-items: center;  
+     /*alinhamento na vertical*/
+    padding: 50px 0; 
+    /* 50px para cima e para baixo e 0 para esquerda e direita*/
+   
+}
+.logo{
+    width: 150px;
+}
+
+.login{
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 40px 20px;
+    margin: 30px;
+}
+.login form input{
+    width: 100%;
+    height: 30px;
+    margin: 7px 0;
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.login form button{
+    background-color: #0095f6;
+    color: #fff;
+    padding: 8px 10px;
+    margin: 15px 0;
+    width: 100%;
+    border: none;
+}
+.banner img{
+    width: 80%;
+}
+.cta-cadastro{
+    width: 100%;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    padding: 5px 20px;
+    border-radius: 6px;
+    text-decoration: black;
+}
+
+/* PAGINA DE REGISTRO*/
+.logo_reg{
+    width: 100px;
+}
+.registro{
+    width: 380px;
+    border: 1px solid #ccc;
+    padding: 40px 20px;
+    margin: 30px;
+    border-radius: 6px;
+}
+.registro form input{
+    width: 100%;
+    height: 30px;
+    margin: 7px 0;
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.registro form button{
+    background-color: #0095f6;
+    color: #fff;
+    padding: 8px 10px;
+    margin: 15px 0;
+    width: 100%;
+    border: none;
+}
+.cadastro-cta{
+    width: 100%;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    padding: 5px 20px;
+    border-radius: 6px;
+}
+.registro img{
+    margin-bottom: 10px;
+}
+.banner_reg img{
+    width: 100%;
+}
+.termos{
+    text-align: center;
+}
+input{
+    background-color: #ebe6e69d;
+}
+
+/**Parte de post**/
+article {
+    width: 600px;
+    max-width: 100%;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+article .img-principal {
+    background-image: url('../img/publication_example.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+}
+
+article .post-header {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+article .post-header button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+article .post-header .usuario {
+    display: flex;
+}
+
+article .post-header .usuario img {
+    width: 50px;
+    margin-right: 15px;
+}
+
+article .comentarios .legenda {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    vertical-align: center;
+}

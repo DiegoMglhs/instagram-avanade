@@ -1,52 +1,58 @@
-const {Post, sequelize} = require('../models');
+const { request } = require('express');
+const { Post } = require('../models/');
 
-const potsController = {
-    index: async (req, res) => {
-        let posts = await Post.findAll();
-        return res.json(posts);
+const postsController = {
+    index: async (request, response) => {
+        const posts = await Post.findAll({
+            include: ['usuario', 'comentarios', 'curtiu']
+        
+        });
+
+        return response.render('index', { listaPosts: posts });
     },
-    create: async (req,res) => {
-        let dadosPost = req.body;
-        let novoPost = await Post.create({
-            texto: dadosPost.texto,
-            img: null,
-            usuarios_id: dadosPost.usuarios_id,
-            n_likes: dadosPost.n_likes
+    show: async(request, response) => {
+        const { usuarios_id } = request.params;
+
+        const postsUsuario = await Post.findAll({
+            where: {
+                usuarios_id
+            }
+        });
+
+        return response.json(postsUsuario);
+    },
+    create: async (request, response) => {
+        const { texto, img, usuarios_id } = request.body;
+        
+        const novoPost = Post.create({
+            texto, img, usuarios_id
         })
-        return res.json(novoPost);
 
+        return response.json(novoPost);
     },
-    update: async (req, res) => {
-        const{upid} = req.params;
-        let dadosAtualiza = req.body;
-        let atualiza = await Post.update({
-            texto: dadosAtualiza.texto,
-            usuarios_id: dadosAtualiza.usuarios_id,
-            n_likes: dadosAtualiza.n_likes
+    update: async (request, response) => {
+        const { id } = request.params;
+        const { texto, img, usuarios_id } = request.body;
+        
+        const postAtualizado = Post.update({
+            texto, img, usuarios_id
         }, {
-            where: {
-                id: upid
-            }
+            where: {id}
         })
-        return res.json(atualiza);
+
+        return response.json(postAtualizado);
     },
-    delete: async (req, res) => {
-        const {delId} = req.params
-        let deletar = await Post.destroy({
-            where:{
-                id: delId
-            }
+    delete: async (request, response) => {
+        const { id } = request.params;
+        
+        const postDeletado = Post.destroy({
+            where: {id}
         })
-        return res.json(deletar);
-    },
-    show: async(req,res) =>{
-        const {id} = req.params;
-        let mostrartudo = await Post.findAll({
-            where: {
-                usuarios_id: id
-            }
-        })
-        return res.json(mostrartudo)
+
+        return response.json(postDeletado);
     }
-}
-module.exports = potsController;
+
+    
+}   
+
+module.exports = postsController;
