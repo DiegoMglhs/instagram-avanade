@@ -5,6 +5,10 @@ const validarcadastro = require('../middlewares/validarcadastro');
 
 router.get('/', usuariosController.index);
 
+router.get('/login', usuariosController.login);
+
+router.post('/login', usuariosController.auth);
+
 router.get('/registro', usuariosController.registro);
 // localhost:3000/usuarios/registro
 router.post('/',validarcadastro, usuariosController.create);

@@ -16,6 +16,7 @@ main{
      /*alinhamento na vertical*/
     padding: 50px 0; 
     /* 50px para cima e para baixo e 0 para esquerda e direita*/
+    flex-direction: column;
    
 }
 .logo{
